@@ -12,6 +12,11 @@ use Laravel\Telescope\Telescope;
 // Clockwork api and app controller
 class ClockworkController extends Controller
 {
+	public function __construct()
+	{
+		$this->middleware(config('clockwork.middlewares'));
+	}
+
 	// Authantication endpoint
 	public function authenticate(Clockwork $clockwork, ClockworkSupport $clockworkSupport, Request $request)
 	{
